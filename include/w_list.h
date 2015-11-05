@@ -1,7 +1,6 @@
 #ifndef _LIST_ELEMENT_
 #define _LIST_ELEMENT_
 
-
 typedef struct list_t {
     void *data;
     struct list_t *next;

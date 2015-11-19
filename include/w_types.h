@@ -21,4 +21,22 @@ typedef unsigned short      word_t;
 typedef unsigned long       dword_t;
 typedef unsigned long long  qword_t;
 
+typedef 
+#ifdef __unix__
+    #define UNIX_PLATFORM
+    #if __x86_64__
+        unsigned long long 
+    #else
+        unsigned int 
+    #endif // __x86_64__
+#else
+    #define WIN_PLATFORM
+    #ifdef _WIN64
+        unsigned __int64 
+    #else
+        unsigned int 
+    #endif // _WIN64
+#endif // __unix__
+arch_long;
+
 #endif // _COMMON_H_

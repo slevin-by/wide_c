@@ -1,7 +1,7 @@
 #ifndef _VECTOR_H_
 #define _VECTOR_H_
 
-#include "jcommon.h"
+#include "w_common.h"
 
 typedef struct vector_t {
 	int *data;

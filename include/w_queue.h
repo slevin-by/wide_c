@@ -1,7 +1,7 @@
 #ifndef _QUEUE_H_
 #define _QUEUE_H_
 
-#include "jlist.h"
+#include "w_list.h"
 
 typedef struct list_t Queue;
 

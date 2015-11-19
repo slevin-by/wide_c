@@ -1,7 +1,7 @@
 #ifndef _STACK_H_
 #define _STACK_H_
 
-#include "jlist.h"
+#include "w_list.h"
 
 typedef struct list_t Stack;
 

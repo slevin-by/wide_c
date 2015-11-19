@@ -2,35 +2,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-List *createList(void)
+List *w_list_create(void)
 {
     List *newList = (List *)malloc(sizeof(List));
     newList->data = newList->prev = newList->next = NULL;
-    newList->isEmpty = TRUE;
+    newList->isEmpty = 1;
     newList->size = 0;
     return newList;
 }
 
-void destroyList(List *list)
+void w_list_destroy(List *list)
 {
     if (list)
         free(list);
 }
 
-void copyListAttr(List **dst, List *src)
+void w_list_copy_attr(List **dst, List *src)
 {
 	(*dst)->isEmpty = src->isEmpty;
 	(*dst)->size = src->size;
 }
 
-void addFirstToList(List **list, void *data)
+void w_list_add_first(List **list, void *data)
 {
     ++((*list)->size);
     
     if ((*list)->data == NULL && (*list)->prev == NULL && (*list)->next == NULL && (*list)->isEmpty)
     {
         (*list)->data = data;
-        (*list)->isEmpty = FALSE;
+        (*list)->isEmpty = 0;
         return;
     }
     
@@ -45,14 +45,14 @@ void addFirstToList(List **list, void *data)
     *list = newList;
 }
 
-void addLastToList(List **list, void *data)
+void w_list_add_last(List **list, void *data)
 {
     ++((*list)->size);
     
     if ((*list)->data == NULL && (*list)->prev == NULL && (*list)->next == NULL && (*list)->isEmpty)
     {
         (*list)->data = data;
-        (*list)->isEmpty = FALSE;
+        (*list)->isEmpty = 0;
         return;
     }
     
@@ -72,7 +72,7 @@ void addLastToList(List **list, void *data)
 }
 
 
-void removeFromList(List **list, void *data)
+void w_list_remove_data(List **list, void *data)
 {
     if ((*list)->size == 0)
 		return;
@@ -81,7 +81,7 @@ void removeFromList(List **list, void *data)
 
 	while ((*list)->data != data && (*list))
 	{
-	    copyListAttr(&(*list)->next, (*list));
+        w_list_copy_attr(&(*list)->next, (*list));
 		(*list) = (*list)->next;
 	}
 
@@ -118,7 +118,7 @@ void removeFromList(List **list, void *data)
 	(*list)->size--;
 }
 
-void removeFromListAt(List **list, int i)
+void w_list_remove_at(List **list, int i)
 {
     if (i < 0 || i >= (*list)->size)
 		return NULL;
@@ -127,16 +127,16 @@ void removeFromListAt(List **list, int i)
 	int currIndex = 0;
 	while (currIndex != i && (*list))
 	{
-		copyListAttr(&(*list)->next, (*list));
+        w_list_copy_attr(&(*list)->next, (*list));
 		(*list) = (*list)->next;
 		currIndex++;
 	}
 
-	removeFromList(&head, (*list)->data);
+    w_list_remove_data(&head, (*list)->data);
 	(*list) = head;
 }
 
-void *getListDataAt(List **list, int i)
+void *w_list_get_at(List **list, int i)
 {
     if (i < 0 || i >= (*list)->size)
 		return NULL;
@@ -156,7 +156,7 @@ void *getListDataAt(List **list, int i)
 	return ret;
 }
 
-int findInList(List **list, void *data)
+int w_list_find_data(List **list, void *data)
 {
     if ((*list)->isEmpty)
 		return 0;
@@ -178,7 +178,7 @@ int findInList(List **list, void *data)
 	return ret;
 }
 
-void printList(List *list)
+void w_list_print(List *list)
 {
     while (list)
     {

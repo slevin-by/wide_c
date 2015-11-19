@@ -15,7 +15,7 @@ typedef struct node_t {
 } Node;
 
 extern Node *createNode(void *data);
-extern boolean addNode(Node **root, Node *newNode);
+extern int addNode(Node **root, Node *newNode);
 
 extern Node *getLeft(Node *node);
 extern Node *getRight(Node *node);

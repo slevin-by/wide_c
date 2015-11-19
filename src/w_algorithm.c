@@ -12,7 +12,7 @@ unsigned short revWord(unsigned short w)
     rev_w <<= 8;
     mask <<= 8;
     
-    temp_b = (uint8_t)((w & mask) >> 8);
+    temp_b = (unsigned char)((w & mask) >> 8);
     rev_w += temp_b;
     
     return rev_w;
@@ -30,19 +30,19 @@ unsigned int revDWord(unsigned int d)
     rev_d <<= 8;
     mask <<= 8;
     
-    temp_b = (uint8_t)((d & mask) >> 8);
+    temp_b = (unsigned char)((d & mask) >> 8);
     rev_d += temp_b;
     
     rev_d <<= 8;
     mask <<= 8;
     
-    temp_b = (uint8_t)((d & mask) >> 16);
+    temp_b = (unsigned char)((d & mask) >> 16);
     rev_d += temp_b;
     
     rev_d <<= 8;
     mask <<= 8;
     
-    temp_b = (uint8_t)((d & mask) >> 24);
+    temp_b = (unsigned char)((d & mask) >> 24);
     rev_d += temp_b;
     
     return rev_d;

@@ -65,7 +65,7 @@ void findNode(Node *node, NodeFinder *finder)
 	if (!node)
         return;
     if (node->data == finder->data)
-    	finder->isFond = TRUE;
+    	finder->isFond = 1;
     findNode(node->left, finder);
     findNode(node->right, finder);
 }

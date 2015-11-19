@@ -3,30 +3,30 @@
 
 Stack *createStack(void)
 {
-    return createList();
+    return w_list_create();
 }
 
 void destroyStack(Stack *stack)
 {
-    destroyList(stack);
+    w_list_destroy(stack);
 }
 
 void stack_push(Stack **stack, void *data)
 {
-    addFirstToList(stack, data);
+    w_list_add_first(stack, data);
 }
 
 void stack_pop(Stack **stack)
 {
-    removeFromListAt(stack, 0);    
+    w_list_remove_at(stack, 0);    
 }
 
 void *stack_top(List **stack)
 {
-    return getListDataAt(stack, 0);
+    return w_list_get_at(stack, 0);
 }
 
 void printStack(Stack *stack)
 {
-    printList(stack);
+    w_list_print(stack);
 }

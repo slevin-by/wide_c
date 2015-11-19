@@ -9,20 +9,20 @@ typedef struct list_t {
     int size;
 } List;
 
-extern List *createList(void);
-extern void destroyList(List *list);
+extern List *w_list_create(void);
+extern void w_list_destroy(List *list);
 
-extern void copyListAttr(List **dst, List *src);
+extern void w_list_copy_attr(List **dst, List *src);
 
-extern void addFirstToList(List **list, void *data);
-extern void addLastToList(List **list, void *data);
+extern void w_list_add_first(List **list, void *data);
+extern void w_list_add_last(List **list, void *data);
 
-extern void removeFromList(List **list, void *data);
-extern void removeFromListAt(List **list, int i);
+extern void w_list_remove_data(List **list, void *data);
+extern void w_list_remove_at(List **list, int i);
 
-extern void *getListDataAt(List **list, int i);
-extern int findInList(List **list, void *data);
+extern void *w_list_get_at(List **list, int i);
+extern int w_list_find_data(List **list, void *data);
 
-extern void printList(List *list);
+extern void w_list_print(List *list);
 
 #endif // _LIST_ELEMENT_

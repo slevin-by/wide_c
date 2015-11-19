@@ -1,6 +1,6 @@
 #include "../include/w_algorithm.h"
 
-unsigned short revWord(unsigned short w)
+unsigned short w_rev_word(unsigned short w)
 {
     unsigned short rev_w = 0;
     unsigned short mask = 0x00FF;
@@ -18,7 +18,7 @@ unsigned short revWord(unsigned short w)
     return rev_w;
 }
 
-unsigned int revDWord(unsigned int d)
+unsigned int w_rev_dword(unsigned int d)
 {
     unsigned int rev_d = 0;
     unsigned int mask = 0x000000FF;
@@ -46,4 +46,24 @@ unsigned int revDWord(unsigned int d)
     rev_d += temp_b;
     
     return rev_d;
+}
+
+void w_swap(void **a, void **b)
+{
+    void *temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void w_bubble_sort(int *arr, int size, int is_asc)
+{
+    int i = 0, j = 0;
+    for (i = 1; i < size; i++)
+    {
+        for (j = size-1; j >= i; j--)
+        {
+            if (is_asc ? (arr[j-1] > arr[j]) : (arr[j-1] < arr[j]))
+                w_swap(&arr[j-1], &arr[j]);
+        }
+    }
 }

@@ -8,12 +8,12 @@ typedef struct tree_t {
     unsigned int nodeNumber;
 } Tree;
 
-extern Tree *createTree(void *rootData);
-extern int addToTree(Tree *tree, void *data);
-extern void printTree(Tree *tree);
+extern Tree *w_tree_create(void *rootData);
+extern int w_tree_add(Tree *tree, void *data);
+extern void w_tree_print(Tree *tree);
 
-extern int findInTree(Tree *tree, void *data);
+extern int w_tree_find(Tree *tree, void *data);
 
-extern void treeGoPrefix(Tree *tree, char *format);
+extern void w_tree_go_prefix(Tree *tree, char *format);
 
 #endif // _TREE_H_

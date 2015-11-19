@@ -1,38 +1,38 @@
 #include "../include/w_tree.h"
 #include <stdlib.h>
 
-Tree *createTree(void *rootData)
+Tree *w_tree_create(void *rootData)
 {
     Tree *new_tree = (Tree *)malloc(sizeof(Tree));
-    new_tree->root = createNode(rootData);
+    new_tree->root = w_node_create(rootData);
     new_tree->nodeNumber = 1;
     
     return new_tree;
 }
 
-int addToTree(Tree *tree, void *data)
+int w_tree_add(Tree *tree, void *data)
 {
     ++(tree->nodeNumber);
-    return addNode(&(tree->root), createNode(data));
+    return w_node_add(&(tree->root), w_node_create(data));
 }
 
-void printTree(Tree *tree)
+void w_tree_print(Tree *tree)
 {
-    displayNodes(tree->root);
+    w_node_display(tree->root);
 }
 
-boolean findInTree(Tree *tree, void *data)
+int w_tree_find(Tree *tree, void *data)
 {
     NodeFinder finder;
     finder.data = data;
-    finder.isFond = FALSE;
+    finder.isFond = 0;
     
-    findNode(tree->root, &finder);
+    w_node_find(tree->root, &finder);
     
     return finder.isFond;
 }
 
-void treeGoPrefix(Tree *tree, char *format)
+void w_tree_go_prefix(Tree *tree, char *format)
 {
-    nodeGoPrefix(tree->root, format);
+    w_node_go_prefix(tree->root, format);
 }

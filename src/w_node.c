@@ -4,7 +4,7 @@
 
 static unsigned int currDepth = 0;
 
-Node *createNode(void *data)
+Node *w_node_create(void *data)
 {
 	Node *tmp = (Node *)malloc(sizeof(Node));
 	tmp->data = data;
@@ -13,7 +13,7 @@ Node *createNode(void *data)
 	return tmp;
 }
 
-int addNode(Node **root, Node *newNode)
+int w_node_add(Node **root, Node *newNode)
 {
 	if (!(*root))
 	{
@@ -24,29 +24,29 @@ int addNode(Node **root, Node *newNode)
 	else if ((*root)->data > newNode->data)
 	{
 		++currDepth;
-	    addNode(&(*root)->left, newNode);
+        w_node_add(&(*root)->left, newNode);
 	}
 	else if ((*root)->data < newNode->data)
 	{
 		++currDepth;
-	    addNode(&(*root)->right, newNode);
+        w_node_add(&(*root)->right, newNode);
 	}
 	else
 		return 0;
 	return 1;
 }
 
-Node *getLeft(Node *node)
+Node *w_node_get_left(Node *node)
 {
     return node->left;
 }
 
-Node *getRight(Node *node)
+Node *w_node_get_right(Node *node)
 {
     return node->right;
 }
 
-void displayNodes(Node *root)
+void w_node_display(Node *root)
 {
     int i;
     for (i = 0; i < root->depth; i++)
@@ -54,27 +54,27 @@ void displayNodes(Node *root)
     
     printf("%d\n", root->data);
     
-    if (getLeft(root))
-        displayNodes(getLeft(root));
-    if (getRight(root))
-        displayNodes(getRight(root));
+    if (w_node_get_left(root))
+        w_node_display(w_node_get_left(root));
+    if (w_node_get_right(root))
+        w_node_display(w_node_get_right(root));
 }
 
-void findNode(Node *node, NodeFinder *finder)
+void w_node_find(Node *node, NodeFinder *finder)
 {
 	if (!node)
         return;
     if (node->data == finder->data)
     	finder->isFond = 1;
-    findNode(node->left, finder);
-    findNode(node->right, finder);
+    w_node_find(node->left, finder);
+    w_node_find(node->right, finder);
 }
 
-void nodeGoPrefix(Node *curr, char *format)
+void w_node_go_prefix(Node *curr, char *format)
 {
     if (!curr)
         return;
     printf(format, curr->data);
-    nodeGoPrefix(curr->left, format);
-    nodeGoPrefix(curr->right, format);
+    w_node_go_prefix(curr->left, format);
+    w_node_go_prefix(curr->right, format);
 }

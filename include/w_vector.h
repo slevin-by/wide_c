@@ -1,8 +1,6 @@
 #ifndef _VECTOR_H_
 #define _VECTOR_H_
 
-#include "w_common.h"
-
 typedef struct vector_t {
 	int *data;
 	int size;
@@ -10,15 +8,16 @@ typedef struct vector_t {
 	int isEmpty;
 } Vector;
 
-extern Vector *createVoidVector(void);
-extern Vector *createVector(int size);
-extern void destroyVector(Vector *v);
+extern Vector *w_vector_create_void(void);
+extern Vector *w_vector_create(int size);
+extern void w_vector_destroy(Vector *v);
 
-extern void push_back(Vector *v, int data);
-extern void pop_back(Vector *v);
+extern void w_vector_push_back(Vector *v, int data);
+extern void w_vector_pop_back(Vector *v);
 
-extern int at(Vector *v, int i);
+extern int w_vector_get_at(Vector *v, int i);
+extern int w_vector_set_at(Vector *v, int i, int data);
 
-extern void printVector(Vector *v);
+extern void w_vector_print(Vector *v);
 
 #endif // _VECTOR_H_

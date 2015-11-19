@@ -14,16 +14,16 @@ typedef struct node_t {
 	unsigned int depth;
 } Node;
 
-extern Node *createNode(void *data);
-extern int addNode(Node **root, Node *newNode);
+extern Node *w_node_create(void *data);
+extern int w_node_add(Node **root, Node *newNode);
 
-extern Node *getLeft(Node *node);
-extern Node *getRight(Node *node);
+extern Node *w_node_get_left(Node *node);
+extern Node *w_node_get_right(Node *node);
 
-extern void displayNodes(Node *root);
+extern void w_node_display(Node *root);
 
-extern void findNode(Node *node, NodeFinder *finder);
+extern void w_node_find(Node *node, NodeFinder *finder);
 
-extern void nodeGoPrefix(Node *curr, char *format);
+extern void w_node_go_prefix(Node *curr, char *format);
 
 #endif // _NODE_H_

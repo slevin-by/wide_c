@@ -3,6 +3,7 @@
 
 unsigned short w_rev_word(unsigned short w);
 unsigned int w_rev_dword(unsigned int d);
+unsigned long long w_rev_qword(unsigned long long q);
 
 void w_swap(void **a, void **b);
 

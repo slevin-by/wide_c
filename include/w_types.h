@@ -39,6 +39,6 @@ typedef
 #endif // __unix__
 arch_long;
 
-typedef arch_long   intptr_t;
+typedef arch_long *intptr_t;
 
 #endif // _COMMON_H_

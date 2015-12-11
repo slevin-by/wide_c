@@ -70,6 +70,19 @@ void w_node_find(Node *node, NodeFinder *finder)
     w_node_find(node->right, finder);
 }
 
+void *w_node_search(Node *node, void *key)
+{
+	if (node == NULL)
+    		return NULL;
+	else if (node->data == key)
+    		return node;
+	else
+	{
+    		void *left = w_node_search(node->left, key);
+    		return left ? left : w_node_search(node->right, key);
+	}
+}
+
 void w_node_go_prefix(Node *curr, char *format)
 {
     if (!curr)

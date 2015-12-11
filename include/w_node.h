@@ -23,7 +23,7 @@ extern Node *w_node_get_right(Node *node);
 extern void w_node_display(Node *root);
 
 extern void w_node_find(Node *node, NodeFinder *finder);
-extern void w_node_search(Node *node, void *req_data);
+extern void *w_node_search(Node *node, void *req_data);
 
 extern void w_node_go_prefix(Node *curr, char *format);
 

@@ -3,8 +3,10 @@
 
 #define EXPR_TO_BOOL(expr)  (expr != 0)
 
-#define TRUE	1
-#define FALSE	0
+#define W_TRUE	1
+#define W_FALSE	0
+
+#define W_NULL  0
 
 typedef signed char             int8_t;
 typedef signed short            int16_t;
@@ -39,6 +41,6 @@ typedef
 #endif // __unix__
 arch_long;
 
-typedef arch_long *intptr_t;
+typedef arch_long *arch_ptr;
 
 #endif // _COMMON_H_

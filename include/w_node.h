@@ -15,6 +15,7 @@ typedef struct node_t {
 } Node;
 
 extern Node *w_node_create(void *data);
+extern void w_node_destroy(Node **node);
 extern int w_node_add(Node **root, Node *newNode);
 
 extern Node *w_node_get_left(Node *node);
@@ -23,6 +24,7 @@ extern Node *w_node_get_right(Node *node);
 extern void w_node_display(Node *root);
 
 extern void w_node_find(Node *node, NodeFinder *finder);
+extern int w_node_quick_search(Node *root, void *required_data);
 extern void *w_node_search(Node *node, void *req_data);
 
 extern void w_node_go_prefix(Node *curr, char *format);

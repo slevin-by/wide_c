@@ -9,6 +9,7 @@ typedef struct tree_t {
 } Tree;
 
 extern Tree *w_tree_create(void *rootData);
+extern void w_tree_destroy(Tree *tree);
 extern int w_tree_add(Tree *tree, void *data);
 extern void w_tree_print(Tree *tree);
 

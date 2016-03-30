@@ -10,6 +10,12 @@ Tree *w_tree_create(void *rootData)
     return new_tree;
 }
 
+void w_tree_destroy(Tree *tree)
+{
+    w_node_destroy(&(tree->root));
+    free(tree);
+}
+
 int w_tree_add(Tree *tree, void *data)
 {
     ++(tree->nodeNumber);

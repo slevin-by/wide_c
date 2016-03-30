@@ -13,6 +13,16 @@ Node *w_node_create(void *data)
 	return tmp;
 }
 
+void w_node_destroy(Node **node)
+{
+    if (!(*node))
+        return;
+
+    w_node_destroy(&(*node)->left);
+    w_node_destroy(&(*node)->right);
+    free(*node);
+}
+
 int w_node_add(Node **root, Node *newNode)
 {
 	if (!(*root))
@@ -70,6 +80,21 @@ void w_node_find(Node *node, NodeFinder *finder)
     w_node_find(node->right, finder);
 }
 
+int w_node_quick_search(Node *root, void *required_data)
+{
+    Node *curr = root;
+    while (curr)
+    {
+        if (required_data < curr->data)
+            curr = curr->left;
+        else if (required_data > curr->data)
+            curr = curr->right;
+        else
+            return 1;
+    }
+    return 0;
+}
+
 void *w_node_search(Node *node, void *key)
 {
 	if (node == NULL)
@@ -80,7 +105,7 @@ void *w_node_search(Node *node, void *key)
 	{
     		void *left = w_node_search(node->left, key);
     		return left ? left : w_node_search(node->right, key);
-	}
+    }
 }
 
 void w_node_go_prefix(Node *curr, char *format)
